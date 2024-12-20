@@ -11,12 +11,24 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Routes
 const starterRoutes = require('./routes/starterRoutes');
 const sensorRoutes = require('./routes/sensorRoutes');
+const notificationRoutes = require('./routes/notificationRoutes');
 
+// API endpoints
 app.use('/api/starter', starterRoutes);
 app.use('/api/sensors', sensorRoutes);
+app.use('/api/notifications', notificationRoutes);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.use((err, req, res, next) => {
+    console.error('Error:', err.message || 'Internal Server Error');
+    res.status(err.status || 500).json({
+      error: err.message || 'Internal Server Error',
+    });
+  });
+  
+  const PORT = process.env.PORT || 5000;
+  
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
