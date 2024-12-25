@@ -1,0 +1,49 @@
+name: egg_incubator
+description: A Flutter app to monitor and manage egg incubator parameters with ESP32 integration.
+
+# The Flutter version your application depends on.
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0" # Replace with your specific Flutter version if needed
+
+# Dependencies for your project.
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.5
+  http: ^1.2.2 # Updated to the recommended version of http
+  syncfusion_flutter_charts: ^22.1.34 # For charts (latest version)
+  provider: ^6.0.0 # Ensure compatibility with updated dependencies
+  flutter_svg: ^2.0.4 # For SVG support if required
+
+# Development-only dependencies.
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: "^0.14.2"
+
+# Assets configuration.
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/bg.jpg # Ensure your image is placed in the assets folder
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
+          weight: 700
+
+# Platform-specific configurations.
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon.png"
+  min_sdk_android: 24
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/icon.png"
+
+# Optional plugin configurations for specific use cases.
+flutter_intl:
+  enabled: true
